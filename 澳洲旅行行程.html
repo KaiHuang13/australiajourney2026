@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFFCF6">
+  <meta name="description" content="2026 澳洲雪梨、黃金海岸與布里斯本旅遊行程手帖">
+  <title>澳洲散步旅行手帖｜雪梨・黃金海岸・布里斯本</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:#FFFCF6; --ink:#3E3A39; --coral:#F2A497; --yellow:#F6D27A;
+      --sky:#A8D3E6; --green:#B9DAA5; --white:#fffefb;
+      --soft-pink:#fff0eb; --soft-yellow:#fff7df; --soft-blue:#edf7fb;
+      --soft-green:#f0f7e9; --muted:#746d68; --shadow:4px 4px 0 var(--ink);
+      --round:26px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:96px; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:"Huninn","Noto Sans TC","Microsoft JhengHei",sans-serif; line-height:1.65; letter-spacing:.02em; }
+    button,input { font:inherit; } a { color:inherit; } button { color:inherit; }
+    :focus-visible { outline:3px dashed var(--ink); outline-offset:4px; }
+    .topbar { position:sticky; top:0; z-index:20; background:var(--paper); border-bottom:3px solid var(--ink); }
+    .topbar-inner { max-width:1200px; min-height:74px; margin:0 auto; padding:10px 24px; display:flex; align-items:center; gap:24px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; min-width:max-content; text-decoration:none; font-size:1.08rem; font-weight:700; line-height:1.1; }
+    .brand-mark { width:42px; height:42px; display:grid; place-items:center; border:3px solid var(--ink); border-radius:50%; background:var(--yellow); box-shadow:2px 2px 0 var(--ink); }
+    .brand small { display:block; margin-top:4px; font-size:.7rem; font-weight:400; color:var(--muted); }
+    .nav-links { display:flex; align-items:center; justify-content:center; gap:8px; margin-left:auto; }
+    .nav-links a { padding:8px 12px; border:2px solid transparent; border-radius:999px; text-decoration:none; font-size:.92rem; white-space:nowrap; }
+    .nav-links a:hover { background:var(--soft-yellow); border-color:var(--ink); }
+    .motion-toggle { flex:0 0 auto; padding:8px 11px; border:2px solid var(--ink); border-radius:999px; background:var(--white); cursor:pointer; font-size:.84rem; }
+    .motion-toggle[aria-pressed="true"] { background:var(--soft-green); }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    .hero { display:grid; grid-template-columns:.94fr 1.06fr; align-items:center; gap:clamp(24px,4vw,52px); padding:48px 0 54px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 13px; border:2px solid var(--ink); border-radius:999px; background:var(--soft-yellow); font-size:.88rem; font-weight:700; }
+    .eyebrow-dot { width:10px; height:10px; border-radius:50%; background:var(--coral); border:2px solid var(--ink); }
+    h1 { margin:20px 0 12px; font-size:clamp(2.5rem,5.2vw,4.45rem); line-height:1.14; letter-spacing:.01em; }
+    h1 .colored { color:#bd695f; }
+    .hero-copy>p { max-width:510px; margin:0; color:var(--muted); font-size:1.12rem; }
+    .city-chips { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+    .city-chip { padding:6px 12px; border:2px solid var(--ink); border-radius:999px; font-size:.88rem; background:var(--white); }
+    .city-chip:nth-child(1) { background:var(--soft-pink); } .city-chip:nth-child(2) { background:var(--soft-blue); } .city-chip:nth-child(3) { background:var(--soft-green); }
+    .countdown { display:inline-flex; align-items:center; gap:12px; margin-top:28px; padding:11px 17px 11px 12px; border:3px solid var(--ink); border-radius:20px; background:var(--yellow); box-shadow:var(--shadow); }
+    .countdown-stamp { width:49px; height:49px; display:grid; place-items:center; border:3px solid var(--ink); border-radius:50%; background:var(--paper); font-size:1.3rem; }
+    .countdown-label { display:block; font-size:.78rem; } .countdown-value { display:block; font-size:1.28rem; font-weight:700; line-height:1.2; }
+    .hero-art { position:relative; transform-origin:center bottom; animation:float 4.8s ease-in-out infinite; }
+    .hero-art svg { display:block; width:100%; height:auto; overflow:visible; filter:drop-shadow(5px 6px 0 rgba(62,58,57,.10)); }
+    .art-cloud { animation:cloud-drift 7s ease-in-out infinite alternate; } .art-cloud.delay { animation-delay:-3s; }
+    .art-plane { animation:plane-bob 3.4s ease-in-out infinite; transform-origin:center; }
+    .art-route { stroke-dasharray:7 9; animation:route-dash 12s linear infinite; }
+    .section { padding:26px 0 62px; scroll-margin-top:94px; }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:22px; }
+    .section-heading h2 { margin:0; font-size:clamp(1.8rem,3vw,2.55rem); line-height:1.2; }
+    .section-heading p { max-width:480px; margin:6px 0 0; color:var(--muted); }
+    .section-kicker { display:block; margin-bottom:5px; color:#92754a; font-size:.83rem; font-weight:700; letter-spacing:.1em; }
+    .flight-grid,.stay-grid,.prep-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .card { border:3px solid var(--ink); border-radius:var(--round); background:var(--white); box-shadow:var(--shadow); }
+    .flight-card { padding:20px; min-height:220px; position:relative; overflow:hidden; }
+    .flight-card:nth-child(1) { background:var(--soft-pink); } .flight-card:nth-child(2) { background:var(--soft-blue); } .flight-card:nth-child(3) { background:var(--soft-yellow); }
+    .flight-top { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .flight-type { display:inline-flex; padding:5px 10px; border:2px solid var(--ink); border-radius:999px; background:var(--white); font-size:.8rem; }
+    .flight-icon { font-size:1.55rem; } .flight-route { margin:18px 0 3px; font-size:1.28rem; font-weight:700; }
+    .flight-date { margin:0; color:var(--muted); font-size:.92rem; } .flight-note { margin:15px 0 0; padding-top:12px; border-top:2px dashed rgba(62,58,57,.45); font-size:.88rem; }
+    .mini-route { display:flex; align-items:center; gap:8px; margin:12px 0 2px; }
+    .mini-route .line { height:3px; flex:1; background:var(--ink); position:relative; }
+    .mini-route .line::after { content:""; width:9px; height:9px; position:absolute; right:0; top:-3px; border-radius:50%; background:var(--coral); border:2px solid var(--ink); }
+    .mini-route b { font-size:.88rem; }
+    .day-shell { padding:24px; background:#fffefa; }
+    .day-tabs { display:flex; gap:10px; overflow-x:auto; padding:4px 4px 15px; scrollbar-width:thin; scrollbar-color:var(--green) transparent; }
+    .day-tab { flex:0 0 auto; min-width:114px; padding:9px 15px; border:3px solid var(--ink); border-radius:18px; background:var(--white); cursor:pointer; text-align:left; box-shadow:2px 2px 0 var(--ink); transition:transform .18s ease,background .18s ease; }
+    .day-tab:hover { transform:translateY(-2px) rotate(-1deg); } .day-tab[aria-selected="true"] { background:var(--yellow); transform:translateY(-2px); }
+    .day-tab-date { display:block; font-size:1.06rem; font-weight:700; } .day-tab-city { display:block; font-size:.77rem; color:var(--muted); }
+    .day-tab.bounce { animation:spring-in .45s cubic-bezier(.2,1.6,.45,1); }
+    .day-heading { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:15px 4px 23px; border-bottom:2px dashed rgba(62,58,57,.35); }
+    .day-heading h3 { margin:0; font-size:1.62rem; line-height:1.28; } .day-heading p { margin:5px 0 0; color:var(--muted); }
+    .day-stat { flex:0 0 auto; padding:7px 12px; border:2px solid var(--ink); border-radius:999px; background:var(--soft-green); font-size:.82rem; }
+    .timeline { position:relative; display:grid; gap:15px; padding:24px 0 10px; }
+    .timeline::before { content:""; position:absolute; left:96px; top:35px; bottom:25px; border-left:3px dashed var(--green); }
+    .stop { position:relative; margin-left:120px; padding:14px 17px; border:3px solid var(--ink); border-radius:20px; background:var(--white); box-shadow:2px 2px 0 rgba(62,58,57,.17); }
+    .stop:nth-child(even) { background:#fffefa; } .stop.must { background:var(--soft-pink); }
+    .stop::before { content:""; position:absolute; left:-33px; top:20px; width:17px; height:17px; border:3px solid var(--ink); border-radius:50%; background:var(--sky); z-index:1; }
+    .stop.must::before { background:var(--coral); }
+    .stop-time { position:absolute; top:15px; left:-122px; width:83px; text-align:right; font-size:.83rem; font-weight:700; line-height:1.35; overflow-wrap:anywhere; }
+    .stop-title-row { display:flex; align-items:flex-start; gap:8px; flex-wrap:wrap; } .stop h4 { margin:0; font-size:1.05rem; line-height:1.42; }
+    .must-tag { display:inline-flex; align-items:center; padding:2px 8px; border:2px solid var(--ink); border-radius:999px; background:var(--coral); font-size:.73rem; font-weight:700; white-space:nowrap; }
+    .stop p { margin:7px 0 0; color:#5e5955; font-size:.9rem; } .tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+    .transport-tag { display:inline-flex; padding:2px 9px; border:2px solid var(--ink); border-radius:999px; font-size:.73rem; line-height:1.5; background:var(--paper); }
+    .tag-flight { background:var(--coral); } .tag-train,.tag-shop { background:var(--yellow); } .tag-bus,.tag-ferry { background:var(--sky); }
+    .tag-walk,.tag-stay,.tag-other { background:var(--white); } .tag-light-rail,.tag-sight { background:var(--green); }
+    .day-note { margin:22px 0 2px; padding:16px 18px; border:3px solid var(--ink); border-radius:20px; background:var(--soft-yellow); font-size:.9rem; }
+    .day-note strong { display:block; margin-bottom:4px; }
+    .route-strip { padding:20px 24px; display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:center; gap:14px; background:var(--soft-blue); }
+    .route-stop { text-align:center; } .route-stop .emoji { display:block; font-size:1.7rem; } .route-stop b { display:block; } .route-stop small { color:var(--muted); }
+    .route-arrow { font-size:1.4rem; font-weight:700; }
+    .stay-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .stay-card { padding:19px; min-height:208px; }
+    .stay-card:nth-child(1) { background:var(--soft-pink); } .stay-card:nth-child(2) { background:var(--soft-yellow); } .stay-card:nth-child(3) { background:var(--soft-blue); } .stay-card:nth-child(4) { background:var(--soft-green); }
+    .stay-date { display:inline-block; padding:4px 9px; border:2px solid var(--ink); border-radius:999px; background:var(--white); font-size:.78rem; }
+    .stay-card h3 { margin:12px 0 5px; font-size:1.12rem; line-height:1.3; } .stay-card p { margin:0; color:#5e5955; font-size:.86rem; }
+    .stay-address { min-height:48px; } .map-link { display:inline-flex; margin-top:14px; text-decoration-thickness:2px; text-underline-offset:3px; font-size:.84rem; font-weight:700; }
+    .prep-grid { grid-template-columns:1.1fr .9fr; align-items:start; }
+    .check-card,.note-card { padding:22px; } .check-card { background:var(--soft-green); } .note-card { background:var(--soft-yellow); }
+    .check-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+    .check-top h3,.note-card h3 { margin:0; font-size:1.25rem; }
+    .check-count { padding:5px 10px; border:2px solid var(--ink); border-radius:999px; background:var(--white); font-size:.8rem; white-space:nowrap; }
+    .check-list { display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+    .check-row { display:flex; align-items:flex-start; gap:10px; padding:10px 11px; border:2px solid rgba(62,58,57,.55); border-radius:14px; background:var(--white); cursor:pointer; }
+    .check-row input { width:20px; height:20px; margin:2px 0 0; accent-color:#76a957; flex:0 0 auto; }
+    .check-row span { line-height:1.42; } .check-row.done span { color:var(--muted); text-decoration:line-through; }
+    .note-card ul { margin:12px 0 0; padding-left:1.25rem; } .note-card li+li { margin-top:8px; } .note-card p { margin:9px 0 0; font-size:.9rem; }
+    footer { padding:30px 0 45px; border-top:3px solid var(--ink); background:var(--soft-yellow); }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; align-items:center; } footer p { margin:0; font-size:.88rem; }
+    .back-top { padding:8px 13px; border:2px solid var(--ink); border-radius:999px; background:var(--white); text-decoration:none; white-space:nowrap; }
+    @keyframes float { 0%,100%{transform:translateY(0) rotate(0)} 50%{transform:translateY(-7px) rotate(.3deg)} }
+    @keyframes cloud-drift { from{transform:translateX(-4px)} to{transform:translateX(7px)} }
+    @keyframes plane-bob { 0%,100%{transform:translateY(0) rotate(-4deg)} 50%{transform:translateY(-5px) rotate(1deg)} }
+    @keyframes route-dash { to{stroke-dashoffset:-128} }
+    @keyframes spring-in { 0%{transform:scale(.92) translateY(4px)} 68%{transform:scale(1.06) translateY(-3px)} 100%{transform:scale(1) translateY(-2px)} }
+    html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; }
+    @media(max-width:900px) {
+      .topbar-inner { gap:12px; } .nav-links a { padding:7px 9px; }
+      .hero { grid-template-columns:1fr; padding-top:35px; } .hero-copy { max-width:680px; }
+      .hero-art { width:min(690px,100%); margin:0 auto; } .stay-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    }
+    @media(max-width:640px) {
+      html { scroll-padding-top:130px; }
+      .topbar-inner { min-height:0; padding:8px 14px 9px; flex-wrap:wrap; gap:5px 10px; }
+      .brand { font-size:.95rem; } .brand-mark { width:36px; height:36px; } .brand-mark svg { width:23px; } .brand small { font-size:.65rem; }
+      .nav-links { order:3; width:100%; margin:0; justify-content:flex-start; overflow-x:auto; scrollbar-width:none; gap:3px; }
+      .nav-links::-webkit-scrollbar { display:none; } .nav-links a { padding:5px 10px; font-size:.82rem; }
+      .motion-toggle { margin-left:auto; padding:6px 9px; font-size:.75rem; }
+      .wrap { width:min(100% - 28px,560px); } .hero { gap:22px; padding:29px 0 38px; }
+      h1 { font-size:clamp(2.35rem,11vw,3.3rem); } .hero-copy>p { font-size:1rem; } .countdown { margin-top:22px; }
+      .section { padding:21px 0 47px; scroll-margin-top:127px; } .section-heading { display:block; margin-bottom:18px; }
+      .section-heading p { font-size:.9rem; } .flight-grid,.stay-grid,.prep-grid { grid-template-columns:1fr; gap:14px; }
+      .flight-card { min-height:0; padding:17px; } .day-shell { padding:13px; }
+      .day-heading { align-items:flex-start; flex-direction:column; padding:12px 2px 18px; gap:9px; }
+      .day-heading h3 { font-size:1.35rem; } .day-stat { font-size:.76rem; }
+      .day-tab { min-width:102px; padding:8px 11px; } .timeline { gap:12px; padding-top:20px; }
+      .timeline::before { left:67px; top:30px; } .stop { margin-left:85px; padding:12px; border-radius:17px; }
+      .stop::before { left:-27px; width:15px; height:15px; } .stop-time { left:-85px; width:60px; top:13px; font-size:.72rem; }
+      .stop h4 { font-size:.98rem; } .stop p { font-size:.84rem; } .must-tag { font-size:.68rem; padding:1px 7px; }
+      .transport-tag { font-size:.68rem; } .day-note { padding:13px; font-size:.84rem; }
+      .route-strip { padding:15px 10px; gap:5px; } .route-stop .emoji { font-size:1.35rem; }
+      .route-stop b { font-size:.85rem; } .route-stop small { font-size:.68rem; } .route-arrow { font-size:1rem; }
+      .stay-card { min-height:0; } .stay-address { min-height:0; }
+      .check-card,.note-card { padding:17px; } .footer-inner { align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="回到頁首">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="27" height="27" fill="none">
+            <path d="M5 12 16 5l11 7v13H5z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M11 25v-8h10v8M8 12h16" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="12" r="2" fill="#F2A497" stroke="#3E3A39" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span>澳洲散步旅行手帖<small>SYDNEY · GOLD COAST · BRISBANE</small></span>
+      </a>
+      <nav class="nav-links" aria-label="主要選單">
+        <a href="#schedule">每日行程</a><a href="#transport">航班交通</a><a href="#stay">住宿</a><a href="#prepare">出發準備</a>
+      </nav>
+      <button id="motionToggle" class="motion-toggle" type="button" aria-pressed="false">減少動態效果</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> 2026.10.30 — 11.07　澳洲旅行</span>
+          <h1 id="hero-title">和海風一起，<br><span class="colored">去澳洲散步！</span></h1>
+          <p>從雪梨港灣走到黃金海岸，再把布里斯本的街景收進旅行手帖。每天的路線、車程和小提醒，都在這裡。</p>
+          <div class="city-chips" aria-label="旅行城市"><span class="city-chip">雪梨 Sydney</span><span class="city-chip">黃金海岸 Gold Coast</span><span class="city-chip">布里斯本 Brisbane</span></div>
+          <div class="countdown" aria-live="polite">
+            <span class="countdown-stamp" aria-hidden="true">✈</span>
+            <span><span class="countdown-label">距離行程開始</span><strong class="countdown-value" id="countdownValue">計算中…</strong></span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 640 400" role="img" aria-label="手繪雪梨歌劇院、港灣大橋、山景、火車與海邊">
+            <rect x="18" y="18" width="604" height="358" rx="34" fill="#EAF5F3" stroke="#3E3A39" stroke-width="4"/>
+            <circle cx="535" cy="86" r="32" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+            <g class="art-cloud" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+              <path d="M76 103c0-12 10-21 22-21 6 0 12 3 16 8 4-13 16-21 30-18 12 2 20 12 21 24 11 1 19 10 19 21H88c-7-2-12-7-12-14Z"/>
+            </g>
+            <g class="art-cloud delay" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+              <path d="M408 138c0-9 8-16 17-16 5 0 9 2 12 6 3-10 12-16 22-14 9 2 15 9 16 18 8 1 14 7 14 15h-71c-6-1-10-5-10-9Z"/>
+            </g>
+            <path class="art-route" d="M136 155c100-65 215-72 320-16" fill="none" stroke="#F2A497" stroke-width="4" stroke-linecap="round"/>
+            <g class="art-plane" transform="translate(292 92) rotate(-8)">
+              <path d="m0 10 24-5 15-12 5 2-8 12 17 5-2 4-19-1-9 10-4-1 3-11-21 1z" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+            </g>
+            <path d="M20 274c72-28 126-27 197-3 63 21 115 16 180-4 79-24 145-10 225 12v97H20z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M20 314c92-28 162-9 231 7 83 20 143 5 212-10 58-12 108-9 159 9v56H20z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M23 338c66-16 111-13 167 3 58 17 112 14 171 0s110-14 156 0 74 15 102 8" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+            <path d="M27 360c60-12 98-9 142 3 46 13 89 14 141 1 52-14 100-16 147-3 43 12 77 13 121 4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+            <g aria-hidden="true">
+              <path d="M65 284h159" stroke="#3E3A39" stroke-width="5" stroke-linecap="round"/>
+              <path d="M80 283c5-51 29-77 69-77 39 0 61 27 67 77" fill="none" stroke="#3E3A39" stroke-width="4"/>
+              <path d="M96 276c10-31 23-45 42-45 19 0 32 14 42 45" fill="none" stroke="#3E3A39" stroke-width="3"/>
+              <path d="M91 246h112M82 262h132" stroke="#3E3A39" stroke-width="2.5"/>
+              <path d="M100 234v46m27-57v58m28-58v58m28-47v47" stroke="#3E3A39" stroke-width="2"/>
+              <path d="M70 280v12m153-12v12" stroke="#3E3A39" stroke-width="4"/>
+            </g>
+            <g transform="translate(300 232)">
+              <path d="M0 48h142l-14-14H22z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M26 33c22-2 35-13 39-31 11 18 21 28 41 30-18 4-29 14-39 28-7-14-19-23-41-27Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M57 31c15-10 20-24 21-37 10 18 21 27 39 31-17 3-29 14-39 31-6-13-11-19-21-25Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M15 48h115M35 54v8m24-8v8m25-8v8m24-8v8" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(466 216)">
+              <path d="M12 75V30h24v45M39 75V12h23v63M66 75V24h26v51" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M18 39h5m-5 12h5m-5 12h5m19-40h5m-5 12h5m-5 12h5m-5 12h5m18-18h6m-6 12h6m-6 12h6" stroke="#F2A497" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(222 302)">
+              <path d="M0 12h84l11 15H7Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M20 12V0h41v12m-28-12v12" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+              <circle cx="25" cy="29" r="6" fill="#3E3A39"/><circle cx="72" cy="29" r="6" fill="#3E3A39"/>
+              <path d="M35 19h8m14 0h8" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(548 244)">
+              <path d="M15 76 27 13m0 0C10 18 3 8 4 2c13 0 20 5 23 11 4-12 13-16 25-14 0 12-8 18-24 17 12 6 18 14 16 23-13-2-19-8-21-19" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 78h47" stroke="#3E3A39" stroke-width="4" stroke-linecap="round"/>
+            </g>
+            <path d="M266 329c14-7 25-7 39 0m151 2c15-7 25-6 40 1" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="section" id="schedule" aria-labelledby="schedule-title">
+        <div class="section-heading"><div><span class="section-kicker">DAY BY DAY</span><h2 id="schedule-title">每天慢慢走，風景都收好</h2><p>點選日期切換時間軸；「必去」標出這趟旅程的主要景點。</p></div></div>
+        <div class="card day-shell">
+          <div class="day-tabs" id="dayTabs" role="tablist" aria-label="選擇行程日期"></div>
+          <section id="dayPanel" role="tabpanel" aria-live="polite"></section>
+        </div>
+      </section>
+
+      <section class="section" id="transport" aria-labelledby="transport-title">
+        <div class="section-heading"><div><span class="section-kicker">GETTING THERE</span><h2 id="transport-title">航班與旅程路線</h2><p>行程資料沒有完整列出航班號與起降時間，待確認項目先留白標示。</p></div></div>
+        <div class="flight-grid">
+          <article class="card flight-card"><div class="flight-top"><span class="flight-type">國際線・去程</span><span class="flight-icon" aria-hidden="true">✈️</span></div><div class="flight-route">台灣 <span aria-hidden="true">→</span> 雪梨</div><p class="flight-date">旅程日期：10/30–10/31</p><div class="mini-route"><b>TPE</b><span class="line"></span><b>SYD</b></div><p class="flight-note">航班號、起飛與抵達時間：待確認</p></article>
+          <article class="card flight-card"><div class="flight-top"><span class="flight-type">澳洲國內線</span><span class="flight-icon" aria-hidden="true">🛫</span></div><div class="flight-route">雪梨 <span aria-hidden="true">→</span> 黃金海岸</div><p class="flight-date">11/3　SYD → OOL</p><div class="mini-route"><b>SYD</b><span class="line"></span><b>OOL</b></div><p class="flight-note">行程草案列 16:00–17:00 起飛區間；實際班機時間待確認。</p></article>
+          <article class="card flight-card"><div class="flight-top"><span class="flight-type">國際線・回程</span><span class="flight-icon" aria-hidden="true">🛬</span></div><div class="flight-route">回程航班資料</div><p class="flight-date">旅程結束日：11/7</p><div class="mini-route"><b>出發機場</b><span class="line"></span><b>抵達機場</b></div><p class="flight-note">起訖機場、航班號與時間：來源未列，請依機票補上。</p></article>
+        </div>
+        <div class="card route-strip" style="margin-top:20px" aria-label="旅程城市順序">
+          <div class="route-stop"><span class="emoji" aria-hidden="true">🌉</span><b>雪梨</b><small>10/30–11/3</small></div><span class="route-arrow" aria-hidden="true">→</span>
+          <div class="route-stop"><span class="emoji" aria-hidden="true">🏄</span><b>黃金海岸</b><small>11/3–11/5</small></div><span class="route-arrow" aria-hidden="true">→</span>
+          <div class="route-stop"><span class="emoji" aria-hidden="true">🌿</span><b>布里斯本</b><small>11/5–11/7</small></div>
+        </div>
+      </section>
+
+      <section class="section" id="stay" aria-labelledby="stay-title">
+        <div class="section-heading"><div><span class="section-kicker">SWEET HOME</span><h2 id="stay-title">沿途休息的小窩</h2><p>點「地圖位置」可用 Google 地圖搜尋住宿地址。</p></div></div>
+        <div class="stay-grid">
+          <article class="card stay-card"><span class="stay-date">10/31　雪梨</span><h3>ibis budget St Peters</h3><p class="stay-address">178 Princes Hwy,<br>St Peters NSW 2044</p><a class="map-link" href="https://maps.google.com/?q=178+Princes+Hwy+St+Peters+NSW+2044" target="_blank" rel="noreferrer">地圖位置 ↗</a></article>
+          <article class="card stay-card"><span class="stay-date">11/1–11/3　雪梨</span><h3>Mercure Sydney</h3><p class="stay-address">818–820 George St,<br>Sydney NSW 2000</p><a class="map-link" href="https://maps.google.com/?q=Mercure+Sydney+818+George+St+Sydney" target="_blank" rel="noreferrer">地圖位置 ↗</a></article>
+          <article class="card stay-card"><span class="stay-date">11/3–11/5　黃金海岸</span><h3>Surfers Paradise</h3><p class="stay-address">21 Burra St,<br>Surfers Paradise QLD 4217</p><a class="map-link" href="https://maps.google.com/?q=21+Burra+St+Surfers+Paradise+QLD+4217" target="_blank" rel="noreferrer">地圖位置 ↗</a></article>
+          <article class="card stay-card"><span class="stay-date">11/5–11/7　布里斯本</span><h3>Kangaroo Point 住宿</h3><p class="stay-address">520 Main St,<br>Kangaroo Point QLD 4169</p><a class="map-link" href="https://maps.google.com/?q=520+Main+St+Kangaroo+Point+QLD+4169" target="_blank" rel="noreferrer">地圖位置 ↗</a></article>
+        </div>
+      </section>
+
+      <section class="section" id="prepare" aria-labelledby="prepare-title">
+        <div class="section-heading"><div><span class="section-kicker">LITTLE CHECKLIST</span><h2 id="prepare-title">出發前，慢慢打勾</h2><p>勾選狀態會保存在這台裝置的瀏覽器裡。</p></div></div>
+        <div class="prep-grid">
+          <div class="card check-card">
+            <div class="check-top"><h3>旅行準備清單</h3><span class="check-count" id="checkCount" aria-live="polite">0 / 8 已完成</span></div>
+            <ul class="check-list" id="checkList">
+              <li><label class="check-row"><input type="checkbox" data-check="passport"><span>確認護照、簽證、旅遊保險與入境資料</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="flights"><span>補上國際線與 11/3 國內線的航班號、時間、航廈</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="hotels"><span>確認住宿訂房、入住方式與行李寄放</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="dining"><span>確認 Kobe Wagyu、Moyashi 等餐廳訂位</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="transport"><span>出發前重查火車、公車、輕軌與渡輪班表</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="brisbane"><span>確認 11/5 黃金海岸前往布里斯本的交通安排</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="phone"><span>準備 eSIM／漫遊、充電器與澳洲轉接頭</span></label></li>
+              <li><label class="check-row"><input type="checkbox" data-check="daypack"><span>整理水壺、防曬用品、雨具與好走的鞋</span></label></li>
+            </ul>
+          </div>
+          <aside class="card note-card">
+            <h3>行程小提醒</h3>
+            <ul>
+              <li>11/2 藍山景觀世界停留約 2 小時 10 分，現場排隊較久時，縮短瀑布停留或改搭後一班回程車。</li>
+              <li>藍山 526 公車抵達碼頭到 F3 渡輪只有 15 分鐘；若延誤，可改搭 17:52 班次。</li>
+              <li>11/5 鵜鶘餵食約 13:30 開始，建議先在 Ian Dipple Lagoon 找好位置。</li>
+              <li>布里斯本 11/6、11/7 目前只有地點備忘，尚未安排逐時路線。</li>
+            </ul>
+            <p>路線與班表以出發前及現場公告為準。</p>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap footer-inner"><p>小小旅行手帖　·　依照 Notion 行程資料整理　·　2026 澳洲之旅</p><a class="back-top" href="#top">回到最上面 ↑</a></div></footer>
+
+  <script>
+    const days = [
+      {date:"11/1",weekday:"週日",city:"雪梨",title:"邦迪海灘、環狀碼頭與港灣大橋",subtitle:"海岸散步、岩石區市集，再搭曼利渡輪看港灣。",note:"建議先確認 Bondi Trattoria 與 Kobe Wagyu 訂位。Manly Ferry 船班請於出發前再次核對；當日行程較滿，轉乘與候船時間請保留彈性。",stops:[
+        {time:"09:00–09:20",title:"ibis budget St Peters 退房、步行前往車站",note:"帶著行李步行到 St Peters Station，約 15–20 分鐘。",tags:["步行","行李"]},
+        {time:"09:20–09:50",title:"St Peters → Central Station",note:"搭往 Central 的火車，時間包含候車及出站緩衝。",tags:["火車"]},
+        {time:"09:50–10:05",title:"Mercure Sydney 免費寄放行李",note:"飯店位於 Central 附近。領取寄存憑證，晚上回來辦理入住。",tags:["步行","住宿","行李"]},
+        {time:"10:05–11:10",title:"Central → Bondi Beach",note:"搭 T4 至 Bondi Junction，再轉 333 等公車前往海灘。",tags:["火車","公車"]},
+        {time:"11:10–11:30",title:"Bondi Beach 邦迪海灘",note:"拍攝沙灘、海浪、衝浪者，逐步往海灘南側前進。",tags:["景點","步行"],must:true},
+        {time:"11:30–12:15",title:"Sculpture by the Sea 海邊雕塑展",note:"從 Notts Avenue 進入海岸步道，欣賞部分作品及海岸景觀，不走完整展區。",tags:["景點","步行"],must:true},
+        {time:"12:15–12:35",title:"折返 Bondi 南端",note:"經過 Bondi Icebergs 周邊，步行返回午餐地點。",tags:["步行"]},
+        {time:"12:35–12:45",title:"Bondi Trattoria 報到",note:"預留緩衝時間；可先向餐廳表示希望約一小時內結束用餐。",tags:["餐飲"]},
+        {time:"12:45–13:35",title:"Bondi Trattoria 義大利午餐",note:"建議預約 12:45，實際需視出餐情況調整。",tags:["餐飲"]},
+        {time:"13:35–14:45",title:"Bondi Beach → Circular Quay",note:"優先搭 333 公車直達；若候車時間長，改評估公車轉 T4 火車。",tags:["公車","火車"]},
+        {time:"14:45–15:20",title:"Circular Quay 環形碼頭＋Sydney Opera House",note:"欣賞歌劇院外觀及港灣拍照，不安排付費導覽。",tags:["景點","步行"],must:true},
+        {time:"15:20–15:30",title:"步行前往 The Rocks 岩石區",note:"沿海濱往岩石區走。",tags:["步行"]},
+        {time:"15:30–16:10",title:"The Rocks Market 岩石區市集",note:"逛市集約 40 分鐘，主要看手作、特色商品及歷史街道。",tags:["景點","購物"],must:true},
+        {time:"16:10–16:30",title:"返回 Circular Quay 渡輪候船區",note:"提前查看 F1 Manly 月台與船班；Dawes Point Park 暫不安排。",tags:["步行","候船"]},
+        {time:"16:45–17:07",title:"F1 Manly Ferry 去程",note:"從 Circular Quay 搭渡輪前往 Manly，欣賞海上歌劇院與港灣大橋。",tags:["渡輪"],must:true},
+        {time:"17:07–17:45",title:"Manly Wharf 曼利碼頭",note:"短暫拍照、休息，預留重新進站及登船時間。",tags:["景點","休息"]},
+        {time:"17:45–18:07",title:"F1 Manly Ferry 回程",note:"暫依較新的班表資料作保守安排，確切時間出發前再確認。",tags:["渡輪"]},
+        {time:"18:07–18:50",title:"Circular Quay → Kobe Wagyu",note:"建議搭 L2／L3 輕軌至 Chinatown 附近，再步行前往餐廳。",tags:["輕軌","步行"]},
+        {time:"19:00–21:00",title:"Kobe Wagyu Yakiniku 和牛燒肉",note:"建議預約 19:00，預留約 90–120 分鐘；目前尚未確認訂位。",tags:["餐飲"]},
+        {time:"21:00–21:20",title:"步行返回 Mercure Sydney",note:"領回行李並辦理入住，準備隔天藍山行程。",tags:["步行","住宿","行李"]}
+      ]},
+      {date:"11/2",weekday:"週一",city:"藍山",title:"藍山國家公園・卡通巴",subtitle:"採用行程頁推薦方案 A：景觀世界、卡通巴瀑布、三姊妹岩與 F3 渡輪。",note:"Scenic World 約 2 小時 10 分的安排較緊湊。若排隊較久，先縮短瀑布停留；526 公車 16:53 抵達碼頭，距 17:08 渡輪 15 分鐘，若延誤可改搭 17:52 的 F3。",stops:[
+        {time:"06:50–07:05",title:"Mercure Sydney 出發",note:"早餐後離開飯店，步行到中央車站。",tags:["住宿","步行"]},
+        {time:"07:05–07:25",title:"中央車站 Central Station",note:"尋找 BMT 月台、候車。",tags:["火車","候車"]},
+        {time:"07:25–09:25",title:"Central Station → Katoomba Station",note:"搭乘 BMT 藍山線火車。",tags:["火車"],must:true},
+        {time:"09:25–09:40",title:"卡通巴車站 → The Carrington Hotel",note:"步行前往 The Carrington Hotel 附近的 686 公車站。",tags:["步行"]},
+        {time:"09:43–09:55",title:"The Carrington Hotel → Scenic World",note:"搭乘 686 公車前往景觀世界。",tags:["公車"]},
+        {time:"10:00–10:25",title:"Scenic Railway 景觀陡坡列車",note:"搭乘紅色陡坡列車下山。",tags:["景點","交通"],must:true},
+        {time:"10:25–10:55",title:"Scenic Walkway 雨林高架步道",note:"在谷底雨林健行。",tags:["景點","步行"],must:true},
+        {time:"10:55–11:20",title:"Scenic Cableway 峽谷索道纜車",note:"搭纜車返回山頂。",tags:["景點","交通"],must:true},
+        {time:"11:20–12:10",title:"Scenic Skyway 高空橫越纜車",note:"黃色纜車來回，欣賞山谷。",tags:["景點","交通"],must:true},
+        {time:"12:10–12:20",title:"Scenic World → Katoomba Falls",note:"步行約 10–15 分鐘。",tags:["步行"]},
+        {time:"12:20–12:45",title:"Katoomba Falls 卡通巴瀑布",note:"在瀑布觀景處拍照、短暫停留。",tags:["景點","步行"],must:true},
+        {time:"12:54–13:03",title:"Katoomba Falls Reserve → Echo Point",note:"搭乘 686 環狀公車。",tags:["公車"]},
+        {time:"13:03–13:30",title:"Echo Point 回音角／Three Sisters 三姊妹岩",note:"欣賞傑米森山谷、拍照。",tags:["景點","步行"],must:true},
+        {time:"13:43–13:48",title:"Echo Point → The Carrington Hotel",note:"搭 686 公車返回市區。",tags:["公車"]},
+        {time:"13:48–14:10",title:"The Carrington Hotel → Katoomba Station",note:"步行到車站，準備回程。",tags:["步行"]},
+        {time:"14:16–16:04",title:"Katoomba → Strathfield",note:"搭乘 BMT 藍山線回程火車。",tags:["火車"]},
+        {time:"16:15–16:53",title:"Strathfield → Sydney Olympic Park Wharf",note:"搭乘 526 公車前往雪梨奧林匹克公園碼頭。",tags:["公車"]},
+        {time:"16:53–17:08",title:"Sydney Olympic Park Wharf 候船",note:"前往登船處、準備搭船。",tags:["候船","步行"]},
+        {time:"17:08–17:52",title:"Sydney Olympic Park Wharf → Circular Quay",note:"搭乘 F3 帕拉瑪塔河渡輪。",tags:["渡輪"],must:true},
+        {time:"17:52–18:10",title:"Circular Quay 港灣拍照",note:"拍攝雪梨歌劇院與雪梨港灣大橋。",tags:["景點","步行"]},
+        {time:"18:10–18:40",title:"Circular Quay → Chinatown → Darling Square",note:"搭 L2／L3 輕軌，再步行前往達令廣場。",tags:["輕軌","步行"]},
+        {time:"18:40–19:00",title:"Darling Square 達令廣場",note:"預留餐廳報到或候位時間。",tags:["休息"]},
+        {time:"19:00–20:30",title:"Moyashi Japanese Hotpot Buffet",note:"日式壽喜燒／和牛吃到飽晚餐。",tags:["餐飲"]},
+        {time:"20:30–20:50",title:"達令廣場 → Mercure Sydney",note:"步行約 15–20 分鐘。",tags:["步行","住宿"]},
+        {time:"約 20:50",title:"返回 Mercure Sydney 休息",note:"結束藍山一日行程。",tags:["住宿"]}
+      ]},
+      {date:"11/3",weekday:"週二",city:"雪梨・黃金海岸",title:"雪梨市區，傍晚飛往黃金海岸",subtitle:"早上寄放行李，逛 QVB、登雪梨塔；傍晚搭國內線轉往衝浪者天堂。",note:"SYD→OOL 實際航班時間尚待確認。Paramount Coffee Project 是早餐首選，也可改 Single O；Edition Roasters 為彈性站點，時間不足可取消。抵達黃金海岸後的晚餐與海灘散步視航班時間、體力調整。",stops:[
+        {time:"07:20–07:40",title:"Mercure Sydney 退房、寄放行李",note:"先處理行李；飯店提供免費寄放服務，退房時間為 10:00 前。",tags:["住宿","行李"]},
+        {time:"07:40–08:00",title:"步行前往 Surry Hills",note:"步行約 15–20 分鐘。",tags:["步行"]},
+        {time:"08:00–08:50",title:"Paramount Coffee Project 早餐",note:"早餐首選；也可改到 Single O 用餐。",tags:["餐飲"]},
+        {time:"08:50–09:15",title:"步行前往 QVB",note:"約 20–25 分鐘，沿市中心街道步行。",tags:["步行"]},
+        {time:"09:15–10:15",title:"Queen Victoria Building（QVB）",note:"拍攝歷史建築、彩繪玻璃、穹頂與內部裝潢。商場 09:00 開放，1、2 樓一般 10:00 開放。",tags:["景點","購物"],must:true},
+        {time:"10:15–10:40",title:"Edition Roasters MidCity 分店",note:"彈性安排，位於 420 George St；若想多逛 QVB，可直接取消此站。",tags:["餐飲"]},
+        {time:"10:40–11:00",title:"步行前往 Sydney Tower Eye",note:"前往 Westfield Sydney，從 Market Street 入口搭電梯到 5 樓尋找觀景台入口。",tags:["步行"]},
+        {time:"11:00–12:00",title:"Sydney Tower Eye 雪梨塔觀景台",note:"建議預約 11:00 第一批入場；欣賞 360° 城市、港灣及遠方藍山景觀。",tags:["景點"],must:true},
+        {time:"12:00–12:30",title:"午餐／外帶餐點",note:"可在 Westfield Sydney 美食街快速用餐，不建議安排需要等候的餐廳。",tags:["餐飲"]},
+        {time:"12:30–13:00",title:"返回 Mercure Sydney",note:"步行約 25–30 分鐘，或搭輕軌至 Central 附近。",tags:["步行","輕軌"]},
+        {time:"13:00–13:20",title:"Mercure 領取行李 → Central Station",note:"確認行李、護照、證件與登機資訊，步行前往車站。",tags:["步行","行李"]},
+        {time:"13:20–14:00",title:"Central → SYD Domestic Airport",note:"搭乘 T8 機場線；時間已含候車、進出站及步行緩衝。",tags:["火車"]},
+        {time:"14:00–15:30",title:"機場報到、託運、安檢",note:"依航空公司指示前往 T2 或 T3 航廈。",tags:["候機","班機"]},
+        {time:"16:00–17:00",title:"雪梨 SYD → 黃金海岸 OOL",note:"行程草案時段，班機實際起飛與抵達時間待確認。",tags:["班機"],must:true},
+        {time:"抵達後 20–45 分",title:"機場出關、提領行李",note:"依航班與行李等候情況調整。",tags:["行李"]},
+        {time:"接續 60–100 分",title:"前往 21 Burra St 住宿",note:"可搭公車＋輕軌＋步行；Uber 通常較省力。",tags:["公車","輕軌","車程","住宿"]},
+        {time:"入住後",title:"放置行李、休息",note:"補充飲水、整理隨身物品。",tags:["住宿","休息"]},
+        {time:"約 19:30–20:45",title:"Alfresco Italian Restaurant 義式晚餐",note:"若抵達較晚，改吃商圈其他餐廳。",tags:["餐飲"]},
+        {time:"20:45–21:30",title:"Cavill Avenue 徒步商圈",note:"逛商店、感受夜間氣氛。",tags:["景點","購物"]},
+        {time:"21:30–22:00",title:"Surfers Paradise Beach 海邊散步",note:"視體力決定是否前往。",tags:["景點","步行"]},
+        {time:"22:00 後",title:"步行返回 Chevron Island 住宿",note:"休息，準備隔天動物園行程。",tags:["步行","住宿"]}
+      ]},
+      {date:"11/4",weekday:"週三",city:"黃金海岸",title:"可倫賓動物園、伯利海岸與夜市",subtitle:"早上看動物與飛行表演，傍晚到 Miami Marketta 吃晚餐。",note:"Currumbin Wildlife Sanctuary 建議優先保留 10:45 的 WildSkies 鳥類飛行表演。離園後前往 Burleigh Heads 的轉乘可視狀況搭公車／輕軌，必要時改搭 Uber。",stops:[
+        {time:"07:15–07:35",title:"早餐、準備出門",note:"可前一晚準備簡易早餐。",tags:["餐飲"]},
+        {time:"07:35–09:00",title:"住宿 → Currumbin",note:"輕軌至 Burleigh Heads，轉 700 公車並步行。",tags:["輕軌","公車","步行"]},
+        {time:"09:00–10:00",title:"Currumbin Wildlife Sanctuary 可倫賓野生動物保護區",note:"先逛無尾熊、袋鼠區。",tags:["景點"],must:true},
+        {time:"10:00–10:30",title:"鵜鶘與鰻魚展示／動物觀察",note:"園內展演擇一，或繼續觀察動物。",tags:["景點"]},
+        {time:"10:45–11:15",title:"WildSkies 鳥類飛行表演",note:"建議優先保留。",tags:["景點"],must:true},
+        {time:"11:15–12:20",title:"動物園自由活動",note:"可安排無尾熊保育解說、拍照與補水。",tags:["景點","休息"]},
+        {time:"12:20–13:10",title:"Currumbin → Burleigh Heads",note:"搭公車／輕軌轉乘，必要時可搭 Uber。",tags:["公車","輕軌","車程"]},
+        {time:"13:10–14:10",title:"Paddock Bakery 午餐",note:"午餐、甜甜圈與咖啡。",tags:["餐飲"]},
+        {time:"14:10–15:30",title:"Burleigh 海岸周邊散步",note:"欣賞海景、拍照、休息。",tags:["景點","步行"],must:true},
+        {time:"15:30–16:45",title:"Miami 海灘周邊",note:"可喝飲料、休息，不必全程走路。",tags:["景點","休息"]},
+        {time:"17:00–19:30",title:"Miami Marketta 夜市",note:"夜市晚餐、逛攤位、聽音樂。",tags:["景點","餐飲"],must:true},
+        {time:"19:30–20:30",title:"返回住宿",note:"從 Miami North 站搭輕軌回 Surfers Paradise。",tags:["輕軌","住宿"]}
+      ]},
+      {date:"11/5",weekday:"週四",city:"黃金海岸・布里斯本",title:"Outlet 購物、鵜鶘餵食與 SkyPoint",subtitle:"先到 Harbour Town，再到 Labrador 用餐看鵜鶘，下午登高看海岸。",note:"若早上退房，先確認住宿是否能寄放行李。Pelican Feeding 約 13:30 開始，建議提早找觀賞位置。行程頁只把 16:15 後列為返回住宿或下一站；前往布里斯本的交通時間尚未排定。",stops:[
+        {time:"06:45–07:30",title:"Cafe Alfons 早餐",note:"位於 Chevron Island，方便且不繞路。",tags:["餐飲"]},
+        {time:"07:30–07:50",title:"返回住宿、整理行李",note:"若要退房，先確認能否寄放行李。",tags:["住宿","行李"]},
+        {time:"07:50–09:00",title:"前往 Harbour Town",note:"大眾運輸需預留轉乘；搭 Uber 可較晚出發。",tags:["公車","車程"]},
+        {time:"09:00–11:45",title:"Harbour Town Premium Outlets Gold Coast",note:"約 2 小時 45 分鐘，優先逛指定品牌。",tags:["購物"],must:true},
+        {time:"11:45–12:15",title:"前往 Labrador",note:"可搭 704 公車或 Uber。",tags:["公車","車程"]},
+        {time:"12:15–13:10",title:"Charis Seafoods 午餐",note:"可考慮魚薯條或海鮮外帶。",tags:["餐飲"]},
+        {time:"13:10–13:50",title:"Ian Dipple Lagoon 鵜鶘餵食",note:"提早找觀賞位置；餵食約 13:30 開始。",tags:["景點","步行"],must:true},
+        {time:"13:50–14:45",title:"返回 Surfers Paradise",note:"搭 704 公車接輕軌，或改搭 Uber。",tags:["公車","輕軌","車程"]},
+        {time:"14:45–16:15",title:"SkyPoint Observation Deck 天頂瞭望台",note:"77 樓高空觀景，預留約 90 分鐘。",tags:["景點"],must:true},
+        {time:"16:15 後",title:"返回住宿或前往下一站",note:"依後續交通安排；黃金海岸前往布里斯本的班次尚未列入逐時行程。",tags:["交通待確認","住宿"]}
+      ]},
+      {date:"11/6",weekday:"週五",city:"布里斯本",title:"布里斯本・Eat Street Northshore",subtitle:"旅行清單提到週五夜市；集合與交通時間尚未排定。",note:"目前只有景點備忘，請補上由住宿出發的交通、抵達時間與回程安排。",stops:[
+        {time:"時間待排",title:"Eat Street Northshore 夜市",note:"行程清單記錄為週五前往；入場時間、交通方式與晚餐安排待確認。",tags:["景點","餐飲","交通待確認"],must:true}
+      ]},
+      {date:"11/7",weekday:"週六",city:"布里斯本",title:"布里斯本市區散步與回程",subtitle:"昆士蘭博物館、皇后街購物中心與 Julius Pizzeria 均列在旅遊清單。",note:"這一天尚未有逐時安排，回程航班與前往機場的時間也未列出，請以實際機票補齊。",stops:[
+        {time:"時間待排",title:"Queensland Museum 昆士蘭博物館",note:"旅遊清單列為必去；開館與停留時間請出發前確認。",tags:["景點","交通待確認"],must:true},
+        {time:"時間待排",title:"Queen Street Mall 皇后街購物中心",note:"市區購物與散步；與博物館的先後順序待安排。",tags:["購物","交通待確認"],must:true},
+        {time:"時間待排",title:"Julius Pizzeria",note:"清單中的用餐選項，是否前往與訂位情況待確認。",tags:["餐飲"]}
+      ]}
+    ];
+
+    const dayTabs=document.getElementById("dayTabs"), dayPanel=document.getElementById("dayPanel"), tabButtons=[];
+    const tagClass={"班機":"tag-flight","公車":"tag-bus","火車":"tag-train","渡輪":"tag-ferry","輕軌":"tag-light-rail","景點":"tag-sight","購物":"tag-shop","住宿":"tag-stay","步行":"tag-walk","交通":"tag-other","餐飲":"tag-flight","車程":"tag-other","候車":"tag-other","候機":"tag-other","候船":"tag-other","休息":"tag-walk","行李":"tag-walk","交通待確認":"tag-other"};
+    const escapeHTML=value=>String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
+
+    function renderDay(index,animate=true) {
+      const day=days[index];
+      tabButtons.forEach((button,i)=>{
+        const selected=i===index;
+        button.setAttribute("aria-selected",String(selected));
+        button.tabIndex=selected?0:-1;
+        button.classList.remove("bounce");
+        if(selected&&animate){void button.offsetWidth;button.classList.add("bounce");}
+      });
+      const mustCount=day.stops.filter(stop=>stop.must).length;
+      const stops=day.stops.map(stop=>{
+        const tags=(stop.tags||[]).map(tag=>'<span class="transport-tag '+(tagClass[tag]||"tag-other")+'">'+escapeHTML(tag)+'</span>').join("");
+        return '<article class="stop'+(stop.must?" must":"")+'"><time class="stop-time">'+escapeHTML(stop.time)+'</time><div class="stop-title-row"><h4>'+escapeHTML(stop.title)+'</h4>'+(stop.must?'<span class="must-tag">✦ 必去</span>':"")+'</div><p>'+escapeHTML(stop.note)+'</p><div class="tag-row">'+tags+'</div></article>';
+      }).join("");
+      dayPanel.innerHTML='<div class="day-heading"><div><h3>'+escapeHTML(day.date)+'・'+escapeHTML(day.title)+'</h3><p>'+escapeHTML(day.subtitle)+'</p></div><span class="day-stat">'+day.stops.length+' 個行程點 · '+mustCount+' 個必去</span></div><div class="timeline">'+stops+'</div><div class="day-note"><strong>✎ 當日小提醒</strong>'+escapeHTML(day.note)+'</div>';
+      dayPanel.setAttribute("aria-label",day.date+" "+day.city+" 行程");
+      if(animate&&!document.documentElement.classList.contains("reduce-motion")) {
+        dayPanel.animate([{opacity:.55,transform:"translateY(8px) scale(.99)"},{opacity:1,transform:"translateY(0) scale(1)"}],{duration:300,easing:"cubic-bezier(.2,1.2,.4,1)"});
+      }
+    }
+
+    days.forEach((day,index)=>{
+      const button=document.createElement("button");
+      button.type="button"; button.className="day-tab"; button.id="day-tab-"+index;
+      button.setAttribute("role","tab"); button.setAttribute("aria-controls","dayPanel");
+      button.setAttribute("aria-selected",String(index===0)); button.tabIndex=index===0?0:-1;
+      button.innerHTML='<span class="day-tab-date">'+escapeHTML(day.date)+' <small>'+escapeHTML(day.weekday)+'</small></span><span class="day-tab-city">'+escapeHTML(day.city)+'</span>';
+      button.addEventListener("click",()=>renderDay(index));
+      button.addEventListener("keydown",event=>{
+        let next=index;
+        if(event.key==="ArrowRight") next=(index+1)%days.length;
+        else if(event.key==="ArrowLeft") next=(index-1+days.length)%days.length;
+        else if(event.key==="Home") next=0;
+        else if(event.key==="End") next=days.length-1;
+        else return;
+        event.preventDefault(); tabButtons[next].focus(); renderDay(next);
+      });
+      tabButtons.push(button); dayTabs.appendChild(button);
+    });
+    renderDay(0,false);
+
+    const countdownValue=document.getElementById("countdownValue");
+    const tripStart=new Date("2026-10-30T00:00:00+08:00").getTime();
+    function updateCountdown(){
+      const remaining=tripStart-Date.now();
+      if(remaining<=0){countdownValue.textContent="旅程開始啦！";return;}
+      const daysLeft=Math.floor(remaining/86400000);
+      const hoursLeft=Math.floor((remaining%86400000)/3600000);
+      countdownValue.textContent=daysLeft+" 天 "+hoursLeft+" 小時";
+    }
+    updateCountdown(); window.setInterval(updateCountdown,60000);
+
+    const checklistKey="australia-trip-2026-checklist";
+    const checkboxes=Array.from(document.querySelectorAll("[data-check]"));
+    const checkCount=document.getElementById("checkCount");
+    let savedChecks={};
+    try{savedChecks=JSON.parse(localStorage.getItem(checklistKey)||"{}");}catch(_){}
+    function updateChecklist(){
+      let done=0;
+      checkboxes.forEach(input=>{
+        input.checked=Boolean(savedChecks[input.dataset.check]);
+        input.closest(".check-row").classList.toggle("done",input.checked);
+        if(input.checked)done++;
+      });
+      checkCount.textContent=done+" / "+checkboxes.length+" 已完成";
+    }
+    checkboxes.forEach(input=>input.addEventListener("change",()=>{
+      savedChecks[input.dataset.check]=input.checked;
+      try{localStorage.setItem(checklistKey,JSON.stringify(savedChecks));}catch(_){}
+      updateChecklist();
+    }));
+    updateChecklist();
+
+    const motionButton=document.getElementById("motionToggle"), motionKey="australia-trip-2026-motion";
+    const systemMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+    let motionChoice=null;
+    try{motionChoice=localStorage.getItem(motionKey);}catch(_){}
+    function applyMotion(){
+      const reduced=motionChoice==="reduce"||(motionChoice===null&&systemMotion.matches);
+      document.documentElement.classList.toggle("reduce-motion",reduced);
+      motionButton.setAttribute("aria-pressed",String(reduced));
+      motionButton.textContent=reduced?"動態效果已減少":"減少動態效果";
+    }
+    motionButton.addEventListener("click",()=>{
+      const currentlyReduced=document.documentElement.classList.contains("reduce-motion");
+      motionChoice=currentlyReduced?"full":"reduce";
+      try{localStorage.setItem(motionKey,motionChoice);}catch(_){}
+      applyMotion();
+    });
+    systemMotion.addEventListener?.("change",()=>{if(motionChoice===null)applyMotion();});
+    applyMotion();
+  </script>
+</body>
+</html>
